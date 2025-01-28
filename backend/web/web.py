@@ -3,12 +3,12 @@ import json
 from flask import Flask,jsonify,request
 import vertexai
 import io
+import os
 from flask_cors import CORS
 from datetime import datetime
 
-
-PROJECT_ID = ""  # @param {type:"string"}
-LOCATION = ""  # @param {type:"string"}
+PROJECT_ID =  os.environ.get('googleproject')
+LOCATION = "us-central1"  # @param {type:"string"}
 
 vertexai.init(project=PROJECT_ID, location=LOCATION)
 
