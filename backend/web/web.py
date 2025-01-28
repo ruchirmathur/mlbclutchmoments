@@ -8,7 +8,7 @@ from flask_cors import CORS
 from datetime import datetime
 
 PROJECT_ID =  os.environ.get('googleproject')
-LOCATION = "us-central1"  # @para{type:"string"}
+LOCATION = "us-central1"  # @para {type:"string"}
 
 vertexai.init(project=PROJECT_ID, location=LOCATION)
 
