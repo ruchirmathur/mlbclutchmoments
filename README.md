@@ -37,7 +37,7 @@ The system provides:
 * Websockets
 
 ## Technology Architecture ##
-https://storage.cloud.google.com/baseballfan/Untitled%20Diagram.png
+![image](https://storage.cloud.google.com/baseballfan/Untitled%20Diagram.png)
 
 ###Frontend Architecture###
 
