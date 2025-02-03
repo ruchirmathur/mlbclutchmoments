@@ -1,10 +1,12 @@
-// src/components/SearchBar.tsx
 import React, { useState } from 'react';
 import { Autocomplete, TextField, InputAdornment, Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import AudioIcon from './AudioIcon';
 
 const suggestions = [
+  "Give me current play information for SF giants game on 2024-03-28",
+  'Give me current play information for the Boston Red Sox game on 2024-03-01',
+  'Give details for the SF giants game on 2024-03-28',
+  "Whats the team roster for the SF giants in 2019",
   'Whats the post season start date in 1919 ?',
   'Whats All start date in 2009?',
   'How many MLB leagues were there in 2022 season ?',
@@ -17,10 +19,6 @@ const suggestions = [
   'What is the venue name for the team Boston Red Sox in 1998?',
   'Give me information on New York Yankees from the 2010 season',
   'Give me information on Boston Red Sox from the 2010 season',
-  'Mike Trout',
-  'MLB All-Star Game',
-  'World Series 2025',
-  'give details for the SF giants game on 2024-03-28',
 ];
 
 interface SearchBarProps {
@@ -83,7 +81,6 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
           },
         }}
       />
-      <AudioIcon />
     </Box>
   );
 };
