@@ -40,8 +40,13 @@
      * Run npm install
      * Run npm start
      * Access the MLB Clutch Moments app by accessing http://localhost:3000
+    
+## Access Information
+React application will be available at
+  * Audio - http://localhost:3000
+  * Web - http://localhost:3000/web
         
-## What it does
+## What does the application do
 This project revolutionizes MLB information access through dual search interfaces:
 ### Audio search: 
 Users can issue voice commands to retrieve up-to-date MLB data. Gemini Flash 2.0's advanced audio processing capabilities interpret these commands accurately.
