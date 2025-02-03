@@ -2,6 +2,21 @@
 
 ## Installation instructions on local
 
+###Pre-Requisites
+* Create a Google Cloud account
+* Create a Google Cloud project
+* Enable 
+
+* git clone https://github.com/ruchirmathur/mlbfanexperience.git
+* Two folders will be available
+   * Backend
+   * Frontend
+ * Navigate to Backend folder
+   * Navigate to mlbfanexperience\backend\audio folder and open main.py file. Update the "api_key" with the API key for using the Gemini Model.
+   * Navigate to mlbfanexperience\backend\web folder and open main.py file. Update the project and location in this file.
+   * Navigate to mlbfanexperience\backend\video folder and open main.py file. Update the project and location in this file
+  
+
 ## What it does
 This project revolutionizes MLB information access through dual search interfaces:
 ###Audio search: 
