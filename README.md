@@ -2,7 +2,7 @@
 
 ## Installation instructions on local
 
-###Pre-Requisites
+### Pre-Requisites
 * Create a Google Cloud account
 * Create a Google Cloud project
 * Enable 
@@ -21,14 +21,14 @@
 This project revolutionizes MLB information access through dual search interfaces:
 ###Audio search: 
 Users can issue voice commands to retrieve up-to-date MLB data. Gemini Flash 2.0's advanced audio processing capabilities interpret these commands accurately.
-#### Supported Use Cases ####
+#### Supported Use Cases
 * League Information
 * Season Information
 * Team Information
 * Player Information
 * Game Information
 
-#### Web search ####: 
+#### Web search: 
 Features an auto-complete search function for quick and easy information retrieval
 
 Both interfaces tap into the MLB Stats API, ensuring real-time, accurate data on leagues, seasons, teams, rosters, and games51. Gemini Flash 2.0's function calling capabilities seamlessly integrate this data, presenting it to users in a clear, accessible format.
