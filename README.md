@@ -4,19 +4,31 @@
 
 ### Pre-Requisites
 * Create a Google Cloud account
-* Create a Google Cloud project
-* Enable 
+* Create a Google Cloud project for the Google Cloud Account and make sure that billing is enabled
+* Enable Gemini Vertex AI API by navigating to Vertex AI on Google Cloud Console
+* Install and initialize the Google Cloud CLI
+* To authenticate, run command gcloud auth application-default login
+* Make appropriate selections of the Google Cloud Project and other information asked by the prompt
+* Go to https://aistudio.google.com/, get API keys that can be used to enable the audio use cases
 
-* git clone https://github.com/ruchirmathur/mlbfanexperience.git
-* Two folders will be available
+### Installation  
+
+* Download the source code, git clone https://github.com/ruchirmathur/mlbfanexperience.git
+* After the download, Two folders will be available
    * Backend
    * Frontend
  * Navigate to Backend folder
-   * Navigate to mlbfanexperience\backend\audio folder and open main.py file. Update the "api_key" with the API key for using the Gemini Model.
+   * Navigate to mlbfanexperience\backend\audio folder and open main.py file.
+      * Update the "api_key" with the API key for using the Gemini Model. This API key should be available in the Google AI studio.
    * Navigate to mlbfanexperience\backend\web folder and open main.py file. Update the project and location in this file.
+      * Update the Project and location in this line, aiplatform.init(project="", location="") 
+      * Update the CORS setting to point to the local host for the React application. e.g CORS(app,origins=["http://localhost:3000"]) 
    * Navigate to mlbfanexperience\backend\video folder and open main.py file. Update the project and location in this file
+     * Update the Project and location in the below line
+            PROJECT_ID = ""  # @param {type:"string"}
+            LOCATION = ""  # @param {type:"string"}
+      * Update the CORS setting to point to the local host for the React application. e.g CORS(app,origins=["http://localhost:3000"])  
   
-
 ## What it does
 This project revolutionizes MLB information access through dual search interfaces:
 ###Audio search: 
