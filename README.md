@@ -18,16 +18,27 @@
    * Backend
    * Frontend
  * Navigate to Backend folder
-   * Navigate to mlbfanexperience\backend\audio folder and open main.py file.
+   * Navigate to mlbclutchmoments\backend\audio folder and open main.py file.
       * Update the "api_key" with the API key for using the Gemini Model. This API key should be available in the Google AI studio.
-   * Navigate to mlbfanexperience\backend\web folder and open main.py file. Update the project and location in this file.
+      * Run this by executing the command, python main.py
+   * Navigate to mlbclutchmoments\backend\web folder and open main.py file. Update the project and location in this file.
       * Update the Project and location in this line, aiplatform.init(project="", location="") 
-      * Update the CORS setting to point to the local host for the React application. e.g CORS(app,origins=["http://localhost:3000"]) 
-   * Navigate to mlbfanexperience\backend\video folder and open main.py file. Update the project and location in this file
+      * Update the CORS setting to point to the local host for the React application. e.g CORS(app,origins=["http://localhost:3000"])
+      * Run this by executing the command, python main.py
+   * Navigate to mlbclutchmoments\backend\video folder and open main.py file. Update the project and location in this file
      * Update the Project and location in the below line
             PROJECT_ID = ""  # @param {type:"string"}
             LOCATION = ""  # @param {type:"string"}
-      * Update the CORS setting to point to the local host for the React application. e.g CORS(app,origins=["http://localhost:3000"])  
+      * Update the CORS setting to point to the local host for the React application. e.g CORS(app,origins=["http://localhost:3000"])
+      * Run this by executing the command, python main.py
+* Navigate to Frontend folder
+   * Navigate to the mlbclutchmoments\frontend\baseballfan\src\components folder and open SearchResults.tsx file. Update the hostname as the host name of server where the video API is hosted.
+   * Navigate to the mlbclutchmoments\frontend\baseballfan\src\pages folder and open Audio.js file. Update the  WS_URL as the hostname for the Audio API for Websockets. It should be in the format ws://hostname:port/ws
+   * Navigate to the mlbclutchmoments\frontend\baseballfan\src\pages folder and open Web.tsx. Update the host for Web API endpoint.
+   * Run npm install
+   * Run npm start
+   * Access the MLB Clutch Moments app by accessing http://localhost:3000
+        
   
 ## What it does
 This project revolutionizes MLB information access through dual search interfaces:
