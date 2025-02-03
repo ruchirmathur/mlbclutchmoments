@@ -1,10 +1,10 @@
-# mlbfanexperience
+# MLB Clutch Moments
 
 ## What it does
 This project revolutionizes MLB information access through dual search interfaces:
 ###Audio search: 
 Users can issue voice commands to retrieve up-to-date MLB data. Gemini Flash 2.0's advanced audio processing capabilities interpret these commands accurately.
-####Supported Use Cases####
+#### Supported Use Cases ####
 * League Information
 * Season Information
 * Team Information
