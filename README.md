@@ -11,7 +11,7 @@ Users can issue voice commands to retrieve up-to-date MLB data. Gemini Flash 2.0
 * Player Information
 * Game Information
 
-###Web search: 
+#### Web search ####: 
 Features an auto-complete search function for quick and easy information retrieval
 
 Both interfaces tap into the MLB Stats API, ensuring real-time, accurate data on leagues, seasons, teams, rosters, and games51. Gemini Flash 2.0's function calling capabilities seamlessly integrate this data, presenting it to users in a clear, accessible format.
@@ -23,8 +23,8 @@ The system provides:
 * Real-time scores and match progress
 * This innovative approach makes MLB information readily available to all fans, including those with visual impairments, enhancing the baseball experience for everyone
 
-## How we built it
-### Technologies used
+## How we built it ##
+### Technologies used ###
 
 * Gemini Multi Modal API
 * Gemini 2.0 Flash 2.0 Exp
@@ -36,10 +36,10 @@ The system provides:
 * Flask
 * Websockets
 
-## Technology Architecture
+## Technology Architecture ##
 ![Architecture](https://storage.cloud.google.com/baseballfan/Untitled%20Diagram.png)
 
-###Frontend Architecture
+###Frontend Architecture###
 
 * **Frameworks** - 
      * **React** - Frontend of the MLB clutch moments application is built using React.
