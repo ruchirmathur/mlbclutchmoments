@@ -307,7 +307,9 @@ def get_current_play(content):
 
     return json.dumps(currentplay, indent=2)
 
-
+def get_team_standings(content):
+    return fetch_mlb_data(f"https://statsapi.mlb.com/api/v1/standings?leagueId={content['league_id']}&season={content['season']}")
+    
 # Define tools (functions)
 tools = [
     {
@@ -324,12 +326,13 @@ tools = [
         ]
     } for func_name, func_desc, func_props in [
         ("get_mlb_seasons", "Provides detailed information about MLB seasons", {"season": {"type": "STRING", "description": "Season for MLB"}}),
-        ("get_mlb_leagues", "Provides detailed information about MLB leagues", {"season": {"type": "STRING", "description": "Season for MLB"}}),
-        ("get_mlb_teams", "Retrieves all MLB teams for a season", {"season": {"type": "STRING", "description": "Season for MLB"}}),
+        ("get_mlb_leagues", "Provides detailed information about MLB leagues, it provides league_id which is used to search for team standings", {"season": {"type": "STRING", "description": "Season for MLB"}}),
+        ("get_mlb_teams", "Retrieves all MLB teams for a season, this retrieves the team id that will be used for accessing information for games, roster,clutch plays, current plays. Call this API first for any team info that needs team_id", {"season": {"type": "STRING", "description": "Season for MLB"}}),
         ("get_mlb_roster", "Provides MLB team roster information,Retrieve the team_id from get_mlb_teams API, please do not ask the user to provide you the team_id. If you know the get_mlb_teams API then get the data proactively", {"season": {"type": "STRING", "description": "Season for MLB"}, "team_id": {"type": "STRING", "description": "Team Id for MLB"}}),
         ("get_game_data", "Retrieves information and highlights about a game. Use game date in YYYY-MM-DD format.", {"team_id": {"type": "STRING", "description": "Team Id for MLB"}, "gamedate": {"type": "STRING", "description": "Game Date for MLB game"}}),
         ("get_mlb_clutch_plays", "Get the Clutch Plays for a MLB game. Use game date in YYYY-MM-DD format", {"team_id": {"type": "STRING", "description": "Team Id for MLB"}, "gamedate": {"type": "STRING", "description": "Game Date for MLB game"}}),
         ("get_current_play", "Get the Current Plays for a MLB game. Use game date in YYYY-MM-DD format", {"team_id": {"type": "STRING", "description": "Team Id for MLB"}, "gamedate": {"type": "STRING", "description": "Game Date for MLB game"}}),
+        ("get_team_standings", "Get the team standings based on the league id of the team", {"league_id": {"type": "STRING", "description": "League Id for MLB"}, "season": {"type": "STRING", "description": "MLB season"}}),
     ]
 ]
 
@@ -341,6 +344,7 @@ function_handler = {
     "get_game_data": get_game_data,
     "get_mlb_clutch_plays": get_mlb_clutch_plays,
     "get_current_play": get_current_play,
+    "get_team_standings":get_team_standings,
 }
 
 app = FastAPI()
