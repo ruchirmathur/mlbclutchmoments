@@ -46,28 +46,24 @@ React application will be available at
   * Audio - http://localhost:3000
   * Web - http://localhost:3000/web
         
-## What does the application do
+
+## What it does
 This project revolutionizes MLB information access through dual search interfaces:
-### Audio search: 
-Users can issue voice commands to retrieve up-to-date MLB data. Gemini Flash 2.0's advanced audio processing capabilities interpret these commands accurately.
-#### Supported Use Cases
-* League Information
-* Season Information
-* Team Information
-* Player Information
-* Game Information
+###Audio search: 
+Users can issue voice commands to retrieve up-to-date MLB data in audio. Gemini Flash 2.0's advanced audio processing capabilities interpret these commands accurately and provide real time MLB data back in the form of audio to the fans.
 
-#### Web search: 
-Features an auto-complete search function for quick and easy information retrieval
+![Audio Search](https://storage.cloud.google.com/baseballfan/audio.png)
 
-Both interfaces tap into the MLB Stats API, ensuring real-time, accurate data on leagues, seasons, teams, rosters, and games51. Gemini Flash 2.0's function calling capabilities seamlessly integrate this data, presenting it to users in a clear, accessible format.
+Audio search gets its data from the MLB Stats API, ensuring real-time, accurate data on MLB leagues, seasons, teams, rosters, and games. Gemini Flash 2.0's function calling capabilities seamlessly integrate this data, presenting it to users in a clear, accessible format. 
 
 The system provides:
-* Live game updates, including pitch-by-pitch information5
-* Comprehensive player and team statistics
+* Live game data and Clutch Plays
+* Comprehensive player and team data
+* MLB League and Season data
 * Historical data for in-depth analysis
-* Real-time scores and match progress
-* This innovative approach makes MLB information readily available to all fans, including those with visual impairments, enhancing the baseball experience for everyone
+* Team Standings
+* This innovative approach makes MLB information readily available to all fans, including those with visual impairments, enhancing the baseball experience for everyone.
+
 
 ## How we built it
 ### Technologies used
@@ -83,7 +79,9 @@ The system provides:
 * Websockets
 
 ## Technology Architecture
-![Image](https://storage.cloud.google.com/baseballfan/Untitled%20Diagram.png)
+![Architecture](https://storage.cloud.google.com/baseballfan/Untitled%20Diagram.png)
+
+Note - Web and Video capabilities have been added in the 2nd iteration.
 
 ### Frontend Architecture
 
@@ -92,7 +90,7 @@ The system provides:
      * **Google Material** - Front end design is powered by Google Material provide a rich user experience
 * **Deployment** -  Google Cloud Run is used for deployment of the React application  
 
-### Backend Architecture
+###Backend Architecture
 
 * **Frameworks** - 
      * **Python** - Used Python to build the API's for the MLB Clutch App
@@ -120,17 +118,15 @@ The system provides:
 
 
 
-     * **Video API** - This API end point is hosted as a Flask API. This API accepts a video url and provides a summary of the video. This is built as the 2nd iteration of this app.
+     * **Video API** - This API end point is hosted as a Flask API. This API accepts a video url and provides a summary of the video. This is built in the 2nd iteration of this app.
 
-     * **Web API** - This API end point is hosted as a flask API. This API receives text input from the web. Text is analyzed and an appropriate function to be called is identified. Based on the function identified by Gemini, MLB data is retrieved from the MLB statsapi . This is built as the 2nd iteration of this app.
+     * **Web API** - This API end point is hosted as a flask API. This API receives text input from the web. Text is analyzed and an appropriate function to be called is identified. Based on the function identified by Gemini, MLB data is retrieved from the MLB statsapi . This is built in the 2nd iteration of this app.
          * This API supports the following MLB Data.
              * Seasons
              * Leagues
              * Teams
              * Players
              * Games
-             * Team Standings
 
 * **Deployment** - API's are deployed on Google Cloud Run.
 
-* **Deployment** - API's are deployed on Google Cloud Run.
