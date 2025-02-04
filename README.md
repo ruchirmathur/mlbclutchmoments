@@ -49,7 +49,7 @@ React application will be available at
 
 ## What it does
 This project revolutionizes MLB information access through dual search interfaces:
-###Audio search: 
+### Audio search: 
 Users can issue voice commands to retrieve up-to-date MLB data in audio. Gemini Flash 2.0's advanced audio processing capabilities interpret these commands accurately and provide real time MLB data back in the form of audio to the fans.
 
 Audio search gets its data from the MLB Stats API, ensuring real-time, accurate data on MLB leagues, seasons, teams, rosters, and games. Gemini Flash 2.0's function calling capabilities seamlessly integrate this data, presenting it to users in a clear, accessible format. 
