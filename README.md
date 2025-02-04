@@ -13,7 +13,7 @@
 
 ### Installation  
 
-* Download the source code, git clone https://github.com/ruchirmathur/mlbfanexperience.git
+* Download the source code, git clone https://github.com/ruchirmathur/mlbclutchmoments.git
 * After the download, Two folders will be available
    * Backend
    * Frontend
@@ -72,7 +72,7 @@ The system provides:
 ## How we built it
 ### Technologies used
 
-* Gemini Multi Modal API
+* Gemini Multi Modal Live API
 * Gemini 2.0 Flash 2.0 Exp
 * Vertex Generative AI SDK
 * Google Gen AI SDKs
@@ -83,8 +83,7 @@ The system provides:
 * Websockets
 
 ## Technology Architecture
-![image](https://ff442e86fef6c9019a67136c8aa8e71f0ecfc974162199da7d2c6b0-apidata.googleusercontent.com/download/storage/v1/b/baseballfan/o/Untitled%20Diagram.png?jk=AXN3i9qyciudaroue3o-9GDc4Rn7VryuINQNwMG2MX1CU_i2Y2TTEQXVBqBp92aVM3R4O7PyUFTUhEcbcVfApLl5kwclxFw80kVuS3UayNZq7pZ2l7TgrSAzmczdCUb4lRZ_oNKy7LcFYGCIihDOzlS-moOyLywdfYbLFHFVYuWucfaBtULe3MEU5JzLmzEX_rhXVT5WOzhT6stpmNXX9CYLEWOTjDrx2XDgi5OSPp4ARMBO4j4dzAV5ABoaB89cpY40e5mQNZwHg1lXzBQUVIZGdMhhJVvaP-WRBeUGATA6WBK8SYaIHOH07YiazB2wPPK1BucBXbIJJRRXRPlReqEMdmqs6jWAenHayEMRw30SbzmtlsAj1pmJFSqEMoqyqDZcPQUOro8B82ywvNwPo5MfTs_ebJkwLLYSLHQGV6zxV1GeNzjlPzgcI_mFPOZ7BuYsJP5SHOK1XjR-ri5sqLXYkj0n7idXfj4AdSWk8p-ERT0AYTd9aA4u08ZxhadG4r-TxKsGEiuIEnfMHnTEynaV7RVR8WDgPOgxW4jRMElIRJEBHhmI194x4SVPY52oP6OOzWiUAjc4h4atQ7APr1XeO1H2N1zgiN5tt9FsUM_2hYee-bolnh0p348-8CC7Mt46CWi4IT6C84yiIju5y2GJGtPBk2KUbW0HrGBVw50C6Tpsriv0N_2KrJOtBseRnbtMyMASCseuYv1iMh5cxarGesnWd8cSsUYfbnztyNOME5SO34O1XPKnxgW0mgmT3bLn4zazN1f5zcToSvIoZ_zgWFW4SdCEA_jBf7tXf1xiiV10sa2s-a1i32D577-lKEYtQtFOfRg_qtoJOLlL4tVILz2DfJDIHnN0RreTi-TU30HthROiD1nmFPiWX4IQgbr3eYnPL3fMESFD2TcjQ1DltTDgdyxk_XVxPls7Tao5UGssI73s_e_oalnfFBCEJsL3rSMaRJfgADmlio_vVi1VuNz2BgKNMNvr86fCu_IP67DJLjU99EicMSIbOJ1soWRjDYs3rWTZKKpeywnthXMSDX8tJ3LYdsbzZF1Eg67jyGaCkRA899qX4fbAQjmkkPyqV5MiThSiJUT8Zdig76GM6NxyY8zBW0lGkiiAcEfokrwHuXi3j7grBXO75W4&isca=1)
-
+![Architecture](https://storage.cloud.google.com/baseballfan/Untitled%20Diagram.png)
 
 ### Frontend Architecture
 
@@ -99,27 +98,39 @@ The system provides:
      * **Python** - Used Python to build the API's for the MLB Clutch App
      * **Flask** - Flask was used some of the API end points
      * **Websockets** - Used Websockets to enable Audio communication
-     * **Google Gen AI SDK** - Used Gen AI SDK for Audio capabilities
+     * **Google Gen AI SDK** - Used Gen AI SDK for enabling Audio capabilities and function calling
      * **Vertex Generative AI SDK**- Used the Gemini SDK to enable Generative AI capabilities for the Web and Video summarization
 
-* **API** - There are 3 API end points exposed as part of the backend.
+     * **Audio Websocket server** - This Websocket server is hosted on Google Cloud Run. This websocket server receives audio input. Audio input is converted into text and it is used to find out the function that needs to be called. Gemini is able to accurately identify the function and it is able to retrieve the MLB data that the user is looking for. Different functions within the websocket server connect to different MLB stats API's to get the information need to power the MLB use cases. 
+         * This server sends the audio output back and supports the following MLB Data.
+             * **Seasons**
+              * API used - https://statsapi.mlb.com/api/v1/seasons/{season}?sportId=1
+             * **Leagues**
+               * API used - https://statsapi.mlb.com/api/v1/league?sportId=1&season={season}
+             * **Teams**
+               * API used - https://statsapi.mlb.com/api/v1/teams?sportId=1&season={season}
+             * **Players**
+               * API used - https://statsapi.mlb.com/api/v1/teams/{team_id}/roster/active?season={season}
+             * **Games**
+                - https://statsapi.mlb.com/api/v1/schedule?sportId=1&season={season}&types=regular&date={gamedate}&teamIds={team_id}
+                - https://statsapi.mlb.com/api/v1/schedule?sportId=1&season={season}&types=regular&date={gamedate}&gamePk={Game ID}&hydrate=game(content(highlights(highlights)))
+               * https://statsapi.mlb.com/api/v1.1/game/{Game Id}/feed/live
+             * **Team Standings**
+                * API used - https://statsapi.mlb.com/api/v1/standings?leagueId={League_id'}&season={Season}
 
-     * **Audio API** - This API end point is hosted as a websocket server. This websocket server receives audio input. Audio input is converted into text and it is used to find out the function that needs to be called.
-         * This API sends the audio output back and supports the following MLB Data.
-             * Seasons
-             * Leagues
-             * Teams
-             * Players
-             * Games
 
-     * **Video API** - This API end point is hosted as a Flask API. This API accepts a video url and provides a summary of the video.
 
-     * **Web API** - This API end point is hosted as a flask API. This API receives text input from the web. Text is analyzed and an appropriate function to be called is identified. Based on the function identified, MLB data is received.
+     * **Video API** - This API end point is hosted as a Flask API. This API accepts a video url and provides a summary of the video. This is built as the 2nd iteration of this app.
+
+     * **Web API** - This API end point is hosted as a flask API. This API receives text input from the web. Text is analyzed and an appropriate function to be called is identified. Based on the function identified by Gemini, MLB data is retrieved from the MLB statsapi . This is built as the 2nd iteration of this app.
          * This API supports the following MLB Data.
              * Seasons
              * Leagues
              * Teams
              * Players
              * Games
+             * Team Standings
+
+* **Deployment** - API's are deployed on Google Cloud Run.
 
 * **Deployment** - API's are deployed on Google Cloud Run.
