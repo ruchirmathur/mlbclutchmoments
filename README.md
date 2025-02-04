@@ -52,7 +52,7 @@ This project revolutionizes MLB information access through dual search interface
 ###Audio search: 
 Users can issue voice commands to retrieve up-to-date MLB data in audio. Gemini Flash 2.0's advanced audio processing capabilities interpret these commands accurately and provide real time MLB data back in the form of audio to the fans.
 
-![Audio Search](https://storage.cloud.google.com/baseballfan/audio.png)
+![Image](https://storage.cloud.google.com/baseballfan/audio.png)
 
 Audio search gets its data from the MLB Stats API, ensuring real-time, accurate data on MLB leagues, seasons, teams, rosters, and games. Gemini Flash 2.0's function calling capabilities seamlessly integrate this data, presenting it to users in a clear, accessible format. 
 
@@ -79,7 +79,7 @@ The system provides:
 * Websockets
 
 ## Technology Architecture
-![Architecture](https://storage.cloud.google.com/baseballfan/Untitled%20Diagram.png)
+![Image](https://storage.cloud.google.com/baseballfan/Untitled%20Diagram.png)
 
 Note - Web and Video capabilities have been added in the 2nd iteration.
 
