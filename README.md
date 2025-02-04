@@ -52,8 +52,6 @@ This project revolutionizes MLB information access through dual search interface
 ###Audio search: 
 Users can issue voice commands to retrieve up-to-date MLB data in audio. Gemini Flash 2.0's advanced audio processing capabilities interpret these commands accurately and provide real time MLB data back in the form of audio to the fans.
 
-![Image](https://storage.cloud.google.com/baseballfan/audio.png)
-
 Audio search gets its data from the MLB Stats API, ensuring real-time, accurate data on MLB leagues, seasons, teams, rosters, and games. Gemini Flash 2.0's function calling capabilities seamlessly integrate this data, presenting it to users in a clear, accessible format. 
 
 The system provides:
@@ -79,9 +77,6 @@ The system provides:
 * Websockets
 
 ## Technology Architecture
-![Image](https://storage.cloud.google.com/baseballfan/Untitled%20Diagram.png)
-
-Note - Web and Video capabilities have been added in the 2nd iteration.
 
 ### Frontend Architecture
 
@@ -90,7 +85,7 @@ Note - Web and Video capabilities have been added in the 2nd iteration.
      * **Google Material** - Front end design is powered by Google Material provide a rich user experience
 * **Deployment** -  Google Cloud Run is used for deployment of the React application  
 
-###Backend Architecture
+### Backend Architecture
 
 * **Frameworks** - 
      * **Python** - Used Python to build the API's for the MLB Clutch App
